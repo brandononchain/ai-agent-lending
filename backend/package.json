@@ -1,0 +1,1 @@
+{\n  "name": "ai-agent-lending-backend",\n  "version": "1.0.0",\n  "main": "index.js",\n  "dependencies": {\n    "express": "^4.18.2"\n  },\n  "scripts": {\n    "start": "node index.js"\n  }\n}
