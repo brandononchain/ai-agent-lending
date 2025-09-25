@@ -1,24 +1,132 @@
-.App {
-  font-family: sans-serif;
-  padding: 2rem;
-  max-width: 600px;
-  margin: auto;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900;
+    @apply text-slate-100;
+    @apply font-sans;
+    @apply antialiased;
+  }
 }
 
-form {
-  margin-bottom: 2rem;
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700;
+    @apply text-white font-medium px-6 py-3 rounded-lg;
+    @apply transition-all duration-200 ease-in-out;
+    @apply transform hover:scale-105 active:scale-95;
+    @apply shadow-lg hover:shadow-xl;
+    @apply relative overflow-hidden;
+  }
+
+  .btn-secondary {
+    @apply bg-gradient-to-r from-slate-700 to-slate-600 hover:from-slate-600 hover:to-slate-500;
+    @apply text-white font-medium px-6 py-3 rounded-lg;
+    @apply transition-all duration-200 ease-in-out;
+    @apply transform hover:scale-105 active:scale-95;
+    @apply shadow-lg hover:shadow-xl;
+  }
+
+  .btn-outline {
+    @apply border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white;
+    @apply font-medium px-6 py-3 rounded-lg;
+    @apply transition-all duration-200 ease-in-out;
+    @apply transform hover:scale-105 active:scale-95;
+  }
+
+  .card {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20;
+    @apply rounded-2xl p-6 shadow-xl;
+    @apply transition-all duration-300 ease-in-out;
+    @apply hover:bg-white/15 hover:shadow-2xl;
+    @apply relative overflow-hidden;
+  }
+
+  .card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent;
+    @apply translate-x-[-100%] hover:translate-x-[100%] transition-transform duration-700;
+  }
+
+  .bento-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+    @apply auto-rows-fr;
+  }
+
+  .bento-item {
+    @apply col-span-1;
+  }
+
+  .bento-item.wide {
+    @apply md:col-span-2;
+  }
+
+  .bento-item.tall {
+    @apply md:row-span-2;
+  }
+
+  .bento-item.large {
+    @apply lg:col-span-2 lg:row-span-2;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400;
+  }
+
+  .glow-effect {
+    @apply relative;
+  }
+
+  .glow-effect::after {
+    content: '';
+    @apply absolute inset-0 rounded-lg opacity-0;
+    @apply bg-gradient-to-r from-blue-600 to-purple-600;
+    @apply blur-xl transition-opacity duration-300;
+    @apply -z-10;
+  }
+
+  .glow-effect:hover::after {
+    @apply opacity-30;
+  }
+
+  .pulse-animation {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease-in-out infinite;
+  }
 }
 
-input {
-  margin-right: 1rem;
-  padding: 0.5rem;
-}
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 
-button {
-  padding: 0.5rem 1rem;
-}
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
 }
